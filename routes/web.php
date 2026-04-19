@@ -8,9 +8,12 @@ use App\Http\Controllers\Admin\ProduitController;
 use App\Http\Controllers\Admin\CategorieController;
 use App\Http\Controllers\Admin\CommandeController as AdminCommandeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccueilController;
 
 // ===== BOUTIQUE PUBLIQUE =====
-Route::get('/', [BoutiqueController::class, 'index'])->name('boutique.index');
+//Route::get('/', [BoutiqueController::class, 'index'])->name('boutique.index');
+Route::get('/', [AccueilController::class, 'index'])->name('accueil');
+Route::get('/boutique', [BoutiqueController::class, 'index'])->name('boutique.index');
 Route::get('/produit/{slug}', [BoutiqueController::class, 'show'])->name('boutique.show');
 Route::get('/categorie/{slug}', [BoutiqueController::class, 'categorie'])->name('boutique.categorie');
 

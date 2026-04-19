@@ -19,6 +19,9 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
+        <li class="nav-item">
+    <a class="nav-link" href="{{ route('accueil') }}">Accueil</a>
+</li>
         <a class="navbar-brand fw-bold" href="{{ route('boutique.index') }}">
             🍰 Goûts & Partages
         </a>

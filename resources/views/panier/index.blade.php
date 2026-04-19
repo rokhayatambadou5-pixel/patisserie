@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.patisserie')
 
 @section('title', 'Mon Panier')
 
