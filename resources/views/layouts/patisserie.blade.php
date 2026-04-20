@@ -19,11 +19,18 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <li class="nav-item">
+<img src="storage/produits/logo.png" alt="" style="height: 45px; width: auto;">
+</a>
+<a href="{{ route('accueil') }}" class="navbar-brand fw-bold" >Goûts & Partages
+    <!-- <img src="storage/produits/logo.png" alt="" style="height: 45px; width: auto;"> -->
+</a>
+
+
+        <!-- <li class="nav-item">
     <a class="nav-link" href="{{ route('accueil') }}">Accueil</a>
-</li>
-        <a class="navbar-brand fw-bold" href="{{ route('boutique.index') }}">
-            🍰 Goûts & Partages
+</li> -->
+        <a class="navbar-brand" href="{{ route('boutique.index') }}">
+            A Propos 
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
             <span class="navbar-toggler-icon"></span>
@@ -44,7 +51,7 @@
                         @endif
                     </a>
                 </li>
-                @auth
+                <!-- @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('commandes.index') }}">Mes commandes</a>
                     </li>
@@ -68,7 +75,46 @@
                             Inscription
                         </a>
                     </li>
-                @endauth
+                @endauth -->
+                @auth
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('commandes.index') }}">Mes commandes</a>
+    </li>
+
+    @if(auth()->user()->role === 'admin')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.produits.index') }}">
+                ⚙️ Admin
+            </a>
+        </li>
+    @endif
+
+    @if(auth()->user()->role === 'caissier')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('caissier.commandes.index') }}">
+                🧾 Caissier
+            </a>
+        </li>
+    @endif
+
+    <li class="nav-item">
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="btn btn-sm btn-outline-light ms-2">
+                Déconnexion
+            </button>
+        </form>
+    </li>
+@else
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">Connexion</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn btn-sm btn-warning ms-2" href="{{ route('register') }}">
+            Inscription
+        </a>
+    </li>
+@endauth
             </ul>
         </div>
     </div>

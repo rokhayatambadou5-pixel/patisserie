@@ -4,7 +4,7 @@
 
 @section('content')
 
-{{-- ===== HERO ===== --}}
+
 <div class="hero-section text-white rounded-4 mb-5 p-5 d-flex align-items-center"
      style="background: linear-gradient(135deg, #c0392b 0%, #922b21 100%); min-height: 480px;">
     <div class="row w-100 align-items-center">
@@ -29,9 +29,9 @@
             </div>
         </div>
         <div class="col-md-6 text-center d-none d-md-block">
-            <div style="font-size:12rem; line-height:1; filter:drop-shadow(0 10px 20px rgba(0,0,0,0.3))">
-                🎂
-            </div>
+            <img src="/storage/produits/gateau.png" 
+     alt="Gâteau" 
+     style="width: 350px; max-width:100%; filter:drop-shadow(0 10px 20px rgba(0,0,0,0.4));">
         </div>
     </div>
 </div>
@@ -80,10 +80,10 @@
      style="background: linear-gradient(135deg, #922b21, #c0392b)">
     <div class="row g-4">
         @foreach([
-            ['🎂', '500+', 'Produits disponibles'],
-            ['😊', '2000+', 'Clients satisfaits'],
-            ['🚚', '100+', 'Livraisons par jour'],
-            ['🏆', '10+', 'Années d\'expérience'],
+            ['🎂', '50+', 'Produits disponibles'],
+            ['😊', '500+', 'Clients satisfaits'],
+            ['🚚', '10+', 'Livraisons par jour'],
+            ['🏆', '5+', 'Années d\'expérience'],
         ] as $stat)
             <div class="col-6 col-md-3">
                 <div style="font-size:2rem">{{ $stat[0] }}</div>

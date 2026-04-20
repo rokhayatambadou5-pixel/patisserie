@@ -38,10 +38,23 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 
 // ===== PROFIL (Breeze) =====
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+// ===== ADMIN =====
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('produits', ProduitController::class);
+    Route::resource('categories', CategorieController::class);
+    Route::resource('commandes', AdminCommandeController::class);
+});
+
+// ===== CAISSIER =====
+Route::middleware(['auth', 'role:admin,caissier'])->prefix('caissier')->name('caissier.')->group(function () {
+    Route::get('/commandes', [AdminCommandeController::class, 'index'])->name('commandes.index');
+    Route::get('/commandes/{commande}', [AdminCommandeController::class, 'show'])->name('commandes.show');
+    Route::patch('/commandes/{commande}/statut', [AdminCommandeController::class, 'updateStatut'])->name('commandes.statut');
 });
 
 // ===== AUTH =====
