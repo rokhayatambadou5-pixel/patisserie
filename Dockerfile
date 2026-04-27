@@ -27,3 +27,10 @@ EXPOSE 10000
 
 # Lancer Laravel
 CMD php artisan serve --host=0.0.0.0 --port=10000
+
+# Copier le script de démarrage
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+EXPOSE 80
+CMD ["/start.sh"]
