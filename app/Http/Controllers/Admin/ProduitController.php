@@ -35,9 +35,13 @@ class ProduitController extends Controller
         $data['slug'] = Str::slug($request->nom);
         $data['disponible'] = $request->has('disponible');
 
+       
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('produits', 'public');
-        }
+    $file = $request->file('image');
+    $filename = time() . '_' . $file->getClientOriginalName();
+    $file->move(public_path('produits'), $filename);
+    $data['image'] = 'produits/' . $filename;
+}
 
         Product::create($data);
         return redirect()->route('admin.produits.index')->with('success', 'Produit créé !');
