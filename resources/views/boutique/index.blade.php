@@ -30,7 +30,7 @@
             <div class="card h-100">
                 @if($product->image)
                   <!-- <img src="{{ asset('storage/'.$product->image) }}" -->
-                     <img src="{{ asset($product->image) }}">
+                     <img src="{{ asset($product->image) }}"
                          class="card-img-top"
                          style="height:180px; object-fit:cover"
                          alt="{{ $product->nom }}">

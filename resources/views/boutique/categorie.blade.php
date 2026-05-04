@@ -11,7 +11,8 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card h-100">
                 @if($product->image)
-                    <img src="{{ asset('storage/'.$product->image) }}"
+                    <!-- <img src="{{ asset('storage/'.$product->image) }}" -->
+                     <img src="{{ asset($product->image) }}"
                          class="card-img-top"
                          style="height:180px; object-fit:cover"
                          alt="{{ $product->nom }}">

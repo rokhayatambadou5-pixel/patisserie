@@ -29,7 +29,8 @@
             </div>
         </div>
         <div class="col-md-6 text-center d-none d-md-block">
-            <img src="/storage/produits/gateau.png" 
+            <!-- <img src="/storage/produits/gateau.png"  -->
+            <img src="produits/gateau.png"
      alt="Gâteau" 
      style="width: 350px; max-width:100%; filter:drop-shadow(0 10px 20px rgba(0,0,0,0.4));">
         </div>
@@ -105,7 +106,8 @@
             <div class="card h-100 product-card">
                 <div class="position-relative">
                     @if($product->image)
-                        <img src="{{ asset('storage/'.$product->image) }}"
+                        <!-- <img src="{{ asset('storage/'.$product->image) }}" -->
+                         <img src="{{ asset($product->image) }}"
                              class="card-img-top"
                              style="height:200px; object-fit:cover"
                              alt="{{ $product->nom }}">
